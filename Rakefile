@@ -14,13 +14,14 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "system_config"
-  gem.homepage = "http://github.com/sandboxws/system_config"
+  gem.name = "system_settings"
+  gem.homepage = "http://github.com/sandboxws/system_settings"
   gem.license = "MIT"
-  gem.summary = %Q{Centralized}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Centralized system settings management for your rails project}
+  gem.description = %Q{Centralized system settings management for your rails project}
   gem.email = "aelhussaini@gmail.com"
   gem.authors = ["Ahmed El.Hussaini"]
+  gem.version = '0.1.0'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -35,19 +36,6 @@ desc "Code coverage detail"
 task :simplecov do
   ENV['COVERAGE'] = "true"
   Rake::Task['spec'].execute
-end
-
-require 'reek/rake/task'
-Reek::Rake::Task.new do |t|
-  t.fail_on_error = true
-  t.verbose = false
-  t.source_files = 'lib/**/*.rb'
-end
-
-require 'roodi'
-require 'roodi_task'
-RoodiTask.new do |t|
-  t.verbose = false
 end
 
 task :default => :spec
